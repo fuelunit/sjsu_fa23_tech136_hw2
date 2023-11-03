@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home-Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css')}}">
+  <script>
+  function formValidation() {
+    done = false;
+    // Get the value of the input field with id="username"
+    let username = document.getElementById("username").value;
+    // Get the value of the input field with id="password"
+    let password = document.getElementById("password").value;
+    // If the user did not enter anything
+    let text;
+    if (username.length == 0 || password.length == 0) {
+      text = "Input is not valid";
+      alert("both username and password cannot be empty");
+    } else {
+      text = "";
+      done = true;
+    }
+    document.getElementById("msg").innerHTML = text;
+    return done;
+  }
+  </script>
+</head>
+<body>
+<form id="login_form" name="login_form" action="login_action" onsubmit="return formValidation()" method = "post">
+Account:
+<input id="username" type="text" name="username" value=""/>
+<br>
+Password:
+<input id="password" type="password" name="password" value=""/>
+<br>
+<input type="submit" value="Submit">
+<div id="msg" style="color:red"></div>
+</form>
+  <h1>
+  <a href='http://127.0.0.1:5091/signup'>Sign up</a><br>
+  </h1>
+</body>
+</html>
+
